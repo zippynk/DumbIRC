@@ -86,9 +86,9 @@ def main():
     global nick
     nick = sys.argv[3]
     bot.connect(sys.argv[1], int(sys.argv[2]))
-    bot.register(nick)
     if len(sys.argv) > 6:
-        bot.password(sys.argv[7])
+        bot.password(sys.argv[6])
+    bot.register(nick)
     bot.join(bot.mainChannel)
     bot.listen_async()
     run(host="0.0.0.0",port=port,debug=False)
@@ -96,6 +96,6 @@ def main():
 
 if __name__ == "__main__":
     if len(sys.argv) < 6:
-        print("Usage: python DumbIRC.py <server> <port> <nick> <channel> <port to host web server> <password (optional)>")
+        print("Usage: python3 DumbIRC.py <server> <port> <nick> <channel> <port to host web server> <password (optional)>")
         exit(1)
     main()
